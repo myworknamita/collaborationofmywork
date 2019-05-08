@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://smartcity.chtvslcfju6w.us-east-2.rds.amazonaws.com:3306/smartcity</property>
+		<property name="connection.username">chipmonk</property>
+		<property name="connection.password">Ch!pm0nk</property>
+		<!-- hibernate.cfg.xml -->
+		<property name="c3p0.min_size">5</property>
+		<property name="c3p0.max_size">20</property>
+		<property name="c3p0.timeout">1800</property>
+		<property name="c3p0.max_statements">50</property>
+		<!-- no "connection.pool_size" entry! -->
+
+		<!-- SQL dialect <property name="connection.autoReconnect">true</property> 
+			<property name="connection.autoReconnectForPools">true</property> <property 
+			name="connection.is-connection-validation-required">true</property> -->
+
+		<property name="hibernate.jdbc.batch_size">100</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- Disable the second-level cache -->
+		<property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">true</property>
+		<!-- update the database schema on startup -->
+		<property name="hbm2ddl.auto">update</property>
+
+		<property name="hibernate.order_inserts">true</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+		<property name="hibernate.jdbc.batch_versioned_data">true</property>
+
+		<mapping class="org.chipmonk.smartcity.model.Light" />
+		<mapping class="org.chipmonk.smartcity.model.SmartCity" />
+		<mapping class="org.chipmonk.smartcity.model.Event" />
+		<mapping class="org.chipmonk.smartcity.model.Power" />
+		<mapping class="org.chipmonk.smartcity.model.Status" />
+		<mapping class="org.chipmonk.smartcity.model.Street" />
+		<mapping class="org.chipmonk.smartcity.model.Wards" />
+		<mapping class="org.chipmonk.smartcity.traffic.model.Road" />
+		<mapping class="org.chipmonk.smartcity.traffic.model.Section" />
+		<mapping
+			class="org.chipmonk.smartcity.traffic.model.Directionality" />
+		<mapping
+			class="org.chipmonk.smartcity.traffic.model.RoadLaying" />
+		<mapping
+			class="org.chipmonk.smartcity.traffic.model.TrafficEstimation" />
+		<mapping class="org.chipmonk.smartcity.traffic.model.Vehicle" />
+		<mapping class="org.chipmonk.smartcity.model.Alert" />
+
+	</session-factory>
+
+</hibernate-configuration>
+
+
+
+
+
